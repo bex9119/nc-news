@@ -1,9 +1,7 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import TopicsBar from "./TopicsBar";
-import Navbar from "react-bootstrap/Navbar"
-import Container from 'react-bootstrap/Container'
-import Nav from 'react-bootstrap/Nav'
-import { LinkContainer } from "react-router-bootstrap";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
 
 const Navigation = () => {
   return (
@@ -14,19 +12,21 @@ const Navigation = () => {
       variant="light"
       className="justify-content-center"
     >
-        <Nav variant="underline" className="justify-content-center">
-          <Nav.Item style={{ marginRight: -10 }}>
-            <LinkContainer to="/" style={{ color: "white" }}>
-              <Nav.Link>Home</Nav.Link>
-            </LinkContainer>
-          </Nav.Item>
-          <Nav.Item style={{ marginRight: -15 }}>
-            <LinkContainer to="/articles" style={{ color: "white" }}>
-              <Nav.Link>Articles</Nav.Link>
-            </LinkContainer>
-          </Nav.Item>
-          <TopicsBar />
-        </Nav>
+      <Nav variant="underline" className="justify-content-center">
+        <Nav.Item style={{ marginRight: -10 }}>
+          <Nav.Link as={NavLink} to="/" style={{ color: "white" }} end>
+            Home
+          </Nav.Link>
+        </Nav.Item>
+
+        <Nav.Item style={{ marginRight: -15 }}>
+          <Nav.Link as={NavLink} to="/articles" style={{ color: "white" }}>
+            Articles
+          </Nav.Link>
+        </Nav.Item>
+
+        <TopicsBar />
+      </Nav>
     </Navbar>
   );
 };
